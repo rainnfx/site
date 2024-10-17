@@ -11,15 +11,14 @@ import { Icons } from "./icons";
 export default function SiteHeader() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-40 border-b bg-background px-2">
-      <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
-        <div className="flex items-center space-x-3">
-          <Link href="/" className="flex items-center space-x-3 text-primary">
-            <Icons.logo className="size-12" />
-            <span className="font-bold">{siteConfig.name}</span>
+    <header className="flex-col">
+      <div className="flex-col bg-zinc-800/50 w-64 h-screen border border-r-zinc-700 p-4">
+        <div className="flex-col">
+          <Link href="/" className="flex-col">
+            <span className="text-sm font-bold">{siteConfig.name}</span>
           </Link>
         </div>
-        <div className="flex items-center space-x-5 md:space-x-6">
+        <div className=" border-r-foreground">
           <HeaderNav />
           <Button
             variant="ghost"

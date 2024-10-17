@@ -3,8 +3,8 @@ import { siteConfig } from "@/config/site";
 import { Bot, Rss } from "lucide-react";
 
 export const NAV_LIST = [
-  { label: "Blog", path: "/blog", icon: Rss },
-  { label: "About", path: "/about", icon: Bot },
+  { label: "Home", path: "/", icon: Rss },
+  { label: "Posts", path: "/posts", icon: Rss },
 ];
 
 export const SOCIALS = [

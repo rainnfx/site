@@ -17,28 +17,18 @@ export default function BlogPage() {
   return (
     <div className="container max-w-4xl py-6 lg:py-10">
       <PageHeader
-        title="Blog"
+        title="Posts"
         description="A blog using velite. Posts are written in MDX"
       />
       <hr className="my-8" />
 
       {blogs.length ? (
-        <div className="grid gap-10 sm:grid-cols-2">
+        <div className="gap-10">
           {blogs.map((blog) => (
             <article
               key={blog.slug}
-              className="group relative flex flex-col space-y-2"
+              className="group relative flex flex-col space-y-2 mb-7"
             >
-              {blog.image && (
-                <Image
-                  src={blog.image}
-                  alt={blog.title}
-                  width={804}
-                  height={452}
-                  className="border bg-muted transition-colors"
-                />
-              )}
-
               <h2 className="text-2xl font-extrabold text-primary">
                 {blog.title}
               </h2>
@@ -59,7 +49,7 @@ export default function BlogPage() {
           ))}
         </div>
       ) : (
-        <p>No Blogs found</p>
+        <p>No Posts found</p>
       )}
     </div>
   );
