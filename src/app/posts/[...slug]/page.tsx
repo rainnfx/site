@@ -67,34 +67,11 @@ export default async function BlogPageItem({ params }: BlogPageItemProps) {
         {blog.date && (
           <time
             dateTime={blog.date}
-            className="block text-sm text-muted-foreground"
+            className="block text-sm text-muted-foreground -mb-5"
           >
-            Published on {formatDate(blog.date)}
+            Written by {blog.author} on {formatDate(blog.date)}
           </time>
         )}
-
-        <h1 className="mt-2 inline-block text-4xl font-bold capitalize leading-tight text-primary lg:text-5xl">
-          {blog.title}
-        </h1>
-
-        {blog.author && (
-          <div className="mt-4 flex space-x-4">
-            <Image
-              src={siteConfig.authorImage}
-              alt={blog.author}
-              width={42}
-              height={42}
-              className="rounded-full bg-white"
-            />
-            <div className="flex-1 text-left leading-tight">
-              <p className="font-medium">{blog.author}</p>
-              <p className="text-[12px] text-muted-foreground">
-                @{blog.author}
-              </p>
-            </div>
-          </div>
-        )}
-
         {blog.image && (
           <Image
             src={blog.image}
@@ -105,15 +82,19 @@ export default async function BlogPageItem({ params }: BlogPageItemProps) {
             className="my-8 border bg-muted transition-colors"
           />
         )}
+        <h1 className="-mt-2 inline-block text-4xl font-bold capitalize leading-tight text-primary lg:text-5xl">
+          {blog.title}
+        </h1>
+        <hr className="mt-5 mb-7" />
         <Mdx code={blog.body} />
         <hr className="mt-12" />
         <div className="flex justify-center py-6 lg:py-10">
           <Link
-            href="/blog"
+            href="/posts"
             className={cn(buttonVariants({ variant: "ghost" }))}
           >
             <ChevronLeft className="mr-2 size-4" />
-            See all Blogs
+            See all Posts
           </Link>
         </div>
       </div>

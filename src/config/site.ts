@@ -1,4 +1,4 @@
-import authorAvatar from "../../public/images/author/devbertskie.png";
+import authorAvatar from "../../public/images/author/pfpv4.png";
 export const siteConfig = {
   name: "Matteo's Site",
   description:
@@ -7,8 +7,6 @@ export const siteConfig = {
   authorImage: authorAvatar,
   social: {
     github: "https://github.com/rainnfx",
-    twitter: "https://twitter.com",
-    facebook: "https://facebook.com",
   },
 };
 
