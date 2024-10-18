@@ -5,6 +5,7 @@ import { blogs as allBlogs } from "#site/content";
 import Image from "next/image";
 import Link from "next/link";
 import { formatDate } from "@/lib/utils";
+import { Separator } from "@/components/ui/separator";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -29,6 +30,11 @@ export default function BlogPage() {
               key={blog.slug}
               className="group relative flex flex-col space-y-2 mb-7"
             >
+              {blog.date && (
+                <p className="text-sm text-muted-foreground">
+                  {formatDate(blog.date)}
+                </p>
+              )}
               <h2 className="text-2xl font-extrabold text-primary">
                 {blog.title}
               </h2>
@@ -36,15 +42,10 @@ export default function BlogPage() {
                 <p className="text-muted-foreground">{blog.description}</p>
               )}
 
-              {blog.date && (
-                <p className="text-sm text-muted-foreground">
-                  {formatDate(blog.date)}
-                </p>
-              )}
-
               <Link href={blog.slug} className="absolute inset-0">
                 <span className="sr-only">View Article</span>
               </Link>
+              <Separator />
             </article>
           ))}
         </div>

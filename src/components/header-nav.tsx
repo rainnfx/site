@@ -14,10 +14,12 @@ export default function HeaderNav() {
           key={item.label + item.path}
           href={item.path}
           className={cn(
-            " font-normal text-primary transition-colors flex items-center",
-            `/${segment}` === item.path
-              ? "text-primary"
-              : "text-muted-foreground"
+            "font-semibold text-sm flex items-center hover:bg-foreground/15 ease-in-out mt-2 p-2 rounded-md",
+            (segment === null || segment === "") && item.path === "/"
+              ? "bg-foreground/15"
+              : `/${segment}` === item.path
+                ? "bg-foreground/15"
+                : "text-muted-foreground"
           )}
         >
           <item.icon className="mr-2 size-4" />

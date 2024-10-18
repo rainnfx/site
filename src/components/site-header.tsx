@@ -12,7 +12,10 @@ export default function SiteHeader() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   return (
     <header className="flex-col">
-      <div className="flex-col bg-zinc-800/50 w-64 h-screen border border-r-zinc-700 p-4">
+      <div
+        className="flex-col w-72 h-screen border border-r-zinc-800 p-4"
+        style={{ backgroundColor: "var(--sidebarmain)" }}
+      >
         <div className="flex-col">
           <Link href="/" className="flex-col">
             <span className="text-sm font-bold">{siteConfig.name}</span>
