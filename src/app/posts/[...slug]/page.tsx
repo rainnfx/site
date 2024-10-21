@@ -72,7 +72,8 @@ export default async function BlogPageItem({ params }: BlogPageItemProps) {
             Written by {blog.author} on {formatDate(blog.date)}
           </time>
         )}
-        {blog.image && (
+
+        {blog.image ? (
           <Image
             src={blog.image}
             alt={blog.title}
@@ -81,7 +82,10 @@ export default async function BlogPageItem({ params }: BlogPageItemProps) {
             priority
             className="my-8 border bg-muted transition-colors"
           />
+        ) : (
+          <div className="my-8" /> // This empty div adds spacing for when there's no image
         )}
+
         <h1 className="-mt-2 inline-block text-4xl font-bold capitalize leading-tight text-primary lg:text-5xl">
           {blog.title}
         </h1>
