@@ -1,15 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { AlignLeft, X } from "lucide-react";
 import { siteConfig } from "@/config/site";
-import HeaderNav from "@/components/header-nav";
-import { Button } from "@/components/ui/button";
-import MobileNav from "@/components/mobile-nav";
-import { Icons } from "./icons";
+import { NAV_LIST } from "@/constants";
+import { cn } from "@/lib/utils";
+import { useSelectedLayoutSegment } from "next/navigation";
+import { TbArrowUpRight } from "react-icons/tb";
 
 export default function SiteHeader() {
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const segment = useSelectedLayoutSegment();
   return (
     <header className="flex-col">
       <div
@@ -22,26 +21,44 @@ export default function SiteHeader() {
           </Link>
         </div>
         <div className=" border-r-foreground">
-          <HeaderNav />
-          <Button
-            variant="ghost"
-            className="p-0 text-primary hover:bg-transparent hover:text-primary md:hidden"
-            onClick={() => setIsMobileOpen(!isMobileOpen)}
-          >
-            <>
-              {isMobileOpen ? (
-                <X className="size-6" />
+          <nav className="mt-5 flex-col">
+            {NAV_LIST.map((item, index) =>
+              item.separator ? (
+                <div
+                  key={`separator-${index}`}
+                  className="mt-4 px-1 mb-2 text-foreground font-bold text-xs"
+                >
+                  {item.separator}
+                </div>
               ) : (
-                <AlignLeft className="size-6" />
-              )}
-              <span className="sr-only">Menu</span>
-            </>
-          </Button>
+                <Link
+                  key={(item.label ?? "default-label") + item.path}
+                  href={item.path ?? "/"}
+                  target={item.type === "link" ? "_blank" : undefined}
+                  rel={item.type === "link" ? "noopener noreferrer" : undefined}
+                  className={cn(
+                    "font-semibold text-sm flex justify-between items-center hover:bg-foreground/15 ease-in-out mt-2 p-1.5 rounded-md",
+                    (segment === null || segment === "") && item.path === "/"
+                      ? "bg-foreground/15"
+                      : `/${segment}` === item.path
+                        ? "bg-foreground/15"
+                        : "text-muted-foreground"
+                  )}
+                >
+                  <div className="flex items-center">
+                    {item.icon && <item.icon className="mr-2 size-4" />}
+                    <span>{item.label}</span>
+                  </div>
+
+                  {item.type === "link" && (
+                    <TbArrowUpRight className="size-4 text-muted-foreground" />
+                  )}
+                </Link>
+              )
+            )}
+          </nav>
         </div>
       </div>
-      {isMobileOpen && (
-        <MobileNav onOpenChange={() => setIsMobileOpen(false)} />
-      )}
     </header>
   );
 }
