@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { Lexend } from "next/font/google";
 import "@/styles/globals.css";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import App from "@/components/app";
 
-const lexend = Lexend({ subsets: ["latin"], variable: "--font-lexend" });
+import { ThemeProvider } from "@/components/theme-provider";
+
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 
 export const metadata: Metadata = {
   title: {
@@ -15,26 +15,23 @@ export const metadata: Metadata = {
   },
 };
 
-const fontCode = localFont({
-  src: "../assets/fonts/GeistMonoVF.woff2",
-  variable: "--font-code",
-});
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: ReactNode;
-}>) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={cn(
-          "min-h-screen antialiased font-lexend bg-background",
-          lexend.variable,
-          fontCode.variable
-        )}
-      >
-        <App>{children}</App>
+    <html>
+      <body className="">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          disableTransitionOnChange
+        >
+          <SidebarProvider>
+            <AppSidebar />
+            <main>
+              <SidebarTrigger />
+              {children}
+            </main>
+          </SidebarProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
