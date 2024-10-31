@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html>
-      <body className="">
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -26,9 +26,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         >
           <SidebarProvider>
             <AppSidebar />
-            <main>
+            <main className="w-full">
               <SidebarTrigger />
-              {children}
+              <div className="flex justify-between">{children}</div>
             </main>
           </SidebarProvider>
         </ThemeProvider>

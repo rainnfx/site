@@ -31,7 +31,7 @@ const items1 = [
 const items2 = [
   {
     title: "Projects",
-    url: "/hi",
+    url: "/projects",
     icon: Folder,
   },
   {
@@ -41,12 +41,12 @@ const items2 = [
   },
   {
     title: "Photography",
-    url: "/hi",
+    url: "/photos",
     icon: Camera,
   },
   {
     title: "Writing",
-    url: "/hi",
+    url: "/writing",
     icon: ScrollText,
   },
 ];
