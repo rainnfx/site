@@ -16,8 +16,8 @@ export default function BlogPage() {
     .filter((blog) => blog.published)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   return (
-    <div className="flex justify-center items-center min-h-screen w-full">
-      <div className="w-full max-w-3xl px-4 py-12 pb-10 md:px-8">
+    <div className="flex justify-center w-full">
+      <div className="w-full max-w-3xl px-4 py-12 md:px-8">
         <PageHeader
           title="Posts"
           description="A blog using velite. Posts are written in MDX"
