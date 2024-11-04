@@ -1,3 +1,5 @@
+import createMDX from "@next/mdx";
+
 import { build } from "velite";
 
 /** @type {import('next').NextConfig} */
@@ -6,7 +8,12 @@ const nextConfig = {
     config.plugins.push(new VeliteWebpackPlugin());
     return config;
   },
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 };
+
+const withMDX = createMDX({
+  // Add markdown plugins here, as desired
+});
 
 class VeliteWebpackPlugin {
   static started = false;
@@ -20,4 +27,4 @@ class VeliteWebpackPlugin {
   }
 }
 
-export default nextConfig;
+export default withMDX(nextConfig);
