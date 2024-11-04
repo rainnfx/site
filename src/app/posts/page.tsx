@@ -1,7 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 import PageHeader from "@/components/page-header";
-import { blogs as allBlogs } from "#site/content";
+import { posts as allBlogs } from "#site/content";
 import Image from "next/image";
 import Link from "next/link";
 import { formatDate } from "@/lib/utils";
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   const blogs = allBlogs
-    .filter((blog) => blog.published)
+    .filter((posts) => posts.published)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   return (
     <div className="flex justify-center w-full">
