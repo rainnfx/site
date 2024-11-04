@@ -1,6 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
-import { blogs as allBlogs } from "#site/content";
+import { posts as allBlogs } from "#site/content";
 import { cn, formatDate } from "@/lib/utils";
 import "@/styles/mdx.css";
 
