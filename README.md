@@ -17,6 +17,9 @@ Simple MDX blog that I forked and heavily modified.
 ## todo
 
 [ ] fix wacky stuff that happens when i try to use components in mdx
+
 [ ] add photography page
+
 [ ] add projects page
+
 [ ] add page on good videos or smtnh (bookmarks)
