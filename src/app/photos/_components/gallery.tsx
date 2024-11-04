@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Camera } from "lucide-react";
 
 const photos = [
   {
@@ -13,6 +14,11 @@ const photos = [
     height: 800,
     alt: "bird",
     span: "col-span-2 row-span-2",
+    camera: "Nikon D5100",
+    lens1: "82mm",
+    lens2: "f/5.6",
+    lens3: "1/80s",
+    lens4: "ISO 100",
   },
   {
     id: 2,
@@ -21,22 +27,59 @@ const photos = [
     height: 800,
     alt: "bench",
     span: "col-span-1 row-span-1",
+    camera: "Nikon D5100",
+    lens1: "55mm",
+    lens2: "f/5.6",
+    lens3: "1/1000s",
+    lens4: "ISO 250",
   },
   {
     id: 3,
-    src: "/images/photos/bench.jpg",
+    src: "/images/photos/crow.jpg",
     width: 600,
     height: 800,
-    alt: "bench",
+    alt: "crow",
     span: "col-span-1 row-span-1",
+    camera: "Nikon D5100",
+    lens1: "140mm",
+    lens2: "f/5.6",
+    lens3: "1/400s",
+    lens4: "ISO 400",
   },
   {
     id: 4,
-    src: "/images/photos/bench.jpg",
+    src: "/images/photos/forest.jpg",
     width: 600,
     height: 800,
-    alt: "bench",
+    alt: "forest",
     span: "col-span-2 row-span-2",
+    camera: "Nikon D5100",
+    lens1: "24mm",
+    lens2: "f/5.6",
+    lens3: "1/1000s",
+    lens4: "ISO 250",
+  },
+  {
+    id: 5,
+    src: "/images/photos/clouds.jpg",
+    width: 600,
+    height: 800,
+    alt: "clouds",
+    span: "col-span-1 row-span-1",
+    camera: "iPad Air 5",
+  },
+  {
+    id: 6,
+    src: "/images/photos/bird2.jpg",
+    width: 600,
+    height: 800,
+    alt: "bird2",
+    span: "col-span-1 row-span-1",
+    camera: "Nikon D5100",
+    lens1: "55mm",
+    lens2: "f/5.6",
+    lens3: "1/250s",
+    lens4: "ISO 100",
   },
 ];
 
@@ -59,6 +102,7 @@ export default function PhotoGallery() {
               scale: 1.05,
               rotate: index % 2 === 0 ? 2 : -2,
               zIndex: 10,
+              transition: { duration: 0.3, ease: "easeInOut" },
             }}
             onClick={() => setSelectedPhoto(photo)}
           >
@@ -82,7 +126,7 @@ export default function PhotoGallery() {
       >
         <DialogContent className="max-w-4xl w-full bg-background">
           {selectedPhoto && (
-            <div className="relative aspect-video">
+            <div className="relative aspect-video rounded-lg">
               <Image
                 src={selectedPhoto.src}
                 alt={selectedPhoto.alt}
@@ -92,9 +136,12 @@ export default function PhotoGallery() {
               />
             </div>
           )}
-          <div className="px-8">
-            <p>24mp</p>
-            <p>105mm</p>
+          <div className="px-20 font-serif text-muted-foreground">
+            <p>{selectedPhoto?.camera}</p>
+            <p>{selectedPhoto?.lens1}</p>
+            <p>{selectedPhoto?.lens2}</p>
+            <p>{selectedPhoto?.lens3}</p>
+            <p>{selectedPhoto?.lens4}</p>
           </div>
         </DialogContent>
       </Dialog>
