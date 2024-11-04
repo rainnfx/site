@@ -13,3 +13,9 @@ Simple MDX blog that I forked and heavily modified.
 - `Markdown`: MDX lets you use JSX in your markdown content. You can import components, such as interactive charts or alerts, and embed them within your content.
 
 - `Velite`: Velite is a tool for building type-safe data layer, turn Markdown / MDX, YAML, JSON, or other files into app's data layer with Zod schema.
+
+## todo
+
+[ ] fix wacky stuff that happens when i try to use components in mdx
+[ ] add photography page
+[ ] add projects page
