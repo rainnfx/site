@@ -3,8 +3,6 @@ import { cn } from "@/lib/utils";
 import React, { HTMLAttributes } from "react";
 import * as runtime from "react/jsx-runtime";
 
-import CodeBlock from "./codeblock";
-
 import Image from "next/image";
 
 const useMDXComponent = (code: string) => {
@@ -80,10 +78,7 @@ const components = {
   ),
   p: ({ className, ...props }: ComponentsProps) => (
     <p
-      className={cn(
-        "leading-7 [&:not(:first-child)]:mt-6 text-muted-foreground",
-        className
-      )}
+      className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}
       {...props}
     />
   ),
@@ -171,7 +166,7 @@ interface MdxProps {
 
 export function MDXContent({ code, components }: MdxProps) {
   const Component = useMDXComponent(code);
-  return <Component components={{ Image, CodeBlock, ...components }} />;
+  return <Component components={{ Image, ...components }} />;
 }
 
 export function Mdx({ code }: MdxProps) {
