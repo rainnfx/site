@@ -6,7 +6,7 @@ import "@/styles/mdx.css";
 
 import Image from "next/image";
 import { siteConfig } from "@/config/site";
-import { Mdx } from "@/components/mdx-component";
+import { Mdx } from "@/components/mdx-components";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";

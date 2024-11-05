@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <section className="pt-16 px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 2xl:px-64">
-      <p className="leading-7 [&:not(:first-child)]:mt-6 text-muted-foreground">
+      <p className="leading-7 text-md [&:not(:first-child)]:mt-6 text-muted-foreground">
         Hey, I'm Matteo. I'm a student who is passionate about building things
         that work.
       </p>
