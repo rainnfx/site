@@ -1,6 +1,6 @@
 # matteoa.com
 
-Simple MDX blog that I forked and heavily modified.
+Simple MDX blog that I [forked](https://github.com/devbertskie/next-mdx-blog) and heavily modified.
 
 ## Used Technologies
 
