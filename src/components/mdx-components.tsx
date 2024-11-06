@@ -13,93 +13,70 @@ const useMDXComponent = (code: string) => {
 type ComponentsProps = HTMLAttributes<HTMLElement>;
 
 const components = {
-  h1: ({ className, ...props }: ComponentsProps) => (
+  h1: ({ ...props }: ComponentsProps) => (
     <h1
       className={cn(
-        "mt-2 scroll-m-20 text-primary text-2xl tracking-tight",
-        className
+        "scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-4xl mt-2"
       )}
       {...props}
     />
   ),
-  h2: ({ className, ...props }: ComponentsProps) => (
+  h2: ({ ...props }: ComponentsProps) => (
     <h2
       className={cn(
-        "mt-10 scroll-m-20 border-b pb-1 text-xl font-semibold text-primary tracking-tight first:mt-0",
-        className
+        "mt-10 scroll-m-20 border-b pb-2 text-3xl font-bold tracking-tight first:mt-0"
       )}
       {...props}
     />
   ),
-  h3: ({ className, ...props }: ComponentsProps) => (
+  h3: ({ ...props }: ComponentsProps) => (
     <h3
-      className={cn(
-        "mt-8 scroll-m-20 text-2xl font-semibold text-primary tracking-tight",
-        className
-      )}
+      className={cn("mt-8 scroll-m-20 text-2xl font-bold tracking-tight")}
       {...props}
     />
   ),
-  h4: ({ className, ...props }: ComponentsProps) => (
+  h4: ({ ...props }: ComponentsProps) => (
     <h4
       className={cn(
-        "mt-8 scroll-m-20 text-xl font-semibold text-primary tracking-tight",
-        className
+        "mt-8 scroll-m-20 text-zinc-200 text-xl font-bold tracking-tight"
       )}
       {...props}
     />
   ),
-  h5: ({ className, ...props }: ComponentsProps) => (
-    <h5
-      className={cn(
-        "mt-8 scroll-m-20 text-lg font-semibold text-primary tracking-tight",
-        className
-      )}
-      {...props}
-    />
-  ),
-  h6: ({ className, ...props }: ComponentsProps) => (
-    <h6
-      className={cn(
-        "mt-8 scroll-m-20 text-base font-semibold text-primary tracking-tight",
-        className
-      )}
-      {...props}
-    />
-  ),
-  a: ({ className, ...props }: ComponentsProps) => (
+  a: ({ ...props }: ComponentsProps) => (
     <a
-      className={cn(
-        "font-medium underline text-primary underline-offset-4",
-        className
-      )}
+      className={cn("font-medium underline text-primary underline-offset-4")}
       {...props}
     />
   ),
-  p: ({ className, ...props }: ComponentsProps) => (
+  p: ({ ...props }: ComponentsProps) => (
     <p
       className={cn(
-        "leading-7 text-muted-foreground [&:not(:first-child)]:mt-6",
-        className
+        "leading-7 text-muted-foreground [&:not(:first-child)]:mt-6"
       )}
       {...props}
     />
   ),
-  strong: ({ className, ...props }: ComponentsProps) => (
+  strong: ({ ...props }: ComponentsProps) => (
     <strong
-      className={cn(
-        "leading-7 text-muted-foreground/2 font-bold [&:not(:first-child)]:mt-6"
-      )}
+      className={cn("leading-7 text-zinc-200 [&:not(:first-child)]:mt-6")}
+      {...props}
     />
   ),
   ul: ({ className, ...props }: ComponentsProps) => (
-    <ul className={cn("my-6 ml-6 list-disc", className)} {...props} />
+    <ul
+      className={cn("my-6 ml-6 list-disc marker:text-primary", className)}
+      {...props}
+    />
   ),
   ol: ({ className, ...props }: ComponentsProps) => (
-    <ol className={cn("my-6 ml-6 list-decimal", className)} {...props} />
+    <ol
+      className={cn("my-6 ml-6 list-decimal marker:text-primary", className)}
+      {...props}
+    />
   ),
   li: ({ className, ...props }: ComponentsProps) => (
-    <li className={cn("mt-2", className)} {...props} />
+    <li className={cn("mt-2 text-muted-foreground", className)} {...props} />
   ),
   blockquote: ({ className, ...props }: ComponentsProps) => (
     <blockquote
@@ -166,7 +143,6 @@ const components = {
       {...props}
     />
   ),
-  Image,
 };
 
 interface MdxProps {

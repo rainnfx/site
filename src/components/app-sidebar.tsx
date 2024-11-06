@@ -98,7 +98,7 @@ export function AppSidebar() {
         <span className="px-2 py-2 text-sm font-semibold text-muted-foreground">
           Source is on{" "}
           <Link
-            href="https://github.com/rainnfx"
+            href="https://github.com/rainnfx/matteoa.com"
             target="_blank"
             className="text-blue-500 hover:underline"
           >
