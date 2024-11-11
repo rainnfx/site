@@ -4,6 +4,8 @@ import React, { HTMLAttributes } from "react";
 import * as runtime from "react/jsx-runtime";
 
 import Image from "next/image";
+import PdfReactPdf from "./react-pdf";
+import { Button } from "./ui/button";
 
 const useMDXComponent = (code: string) => {
   const fn = new Function(code);
@@ -143,6 +145,8 @@ const components = {
       {...props}
     />
   ),
+  Button,
+  PdfReactPdf,
 };
 
 interface MdxProps {
@@ -152,7 +156,7 @@ interface MdxProps {
 
 export function MDXContent({ code, components }: MdxProps) {
   const Component = useMDXComponent(code);
-  return <Component components={{ Image, ...components }} />;
+  return <Component components={{ ...components }} />;
 }
 
 export function Mdx({ code }: MdxProps) {

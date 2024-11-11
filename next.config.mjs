@@ -6,9 +6,11 @@ import { build } from "velite";
 const nextConfig = {
   webpack: (config) => {
     config.plugins.push(new VeliteWebpackPlugin());
+    config.resolve.alias.canvas = false;
     return config;
   },
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  swcMinify: false,
 };
 
 const withMDX = createMDX({
