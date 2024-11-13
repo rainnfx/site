@@ -35,7 +35,6 @@ export default function PostSelector() {
   const postsPerPage = 4;
 
   useEffect(() => {
-    // Delay the mount to ensure client-side hydration completes
     const timer = setTimeout(() => {
       try {
         const sortedBlogs = allBlogs
@@ -72,7 +71,6 @@ export default function PostSelector() {
     setCurrentPage(pageNumber);
   };
 
-  // Return loading state or null during initial render
   if (!isMounted) {
     return (
       <div className="flex justify-center w-full">
