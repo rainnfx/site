@@ -4,7 +4,6 @@ import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 import { ThemeProvider } from "@/components/theme-provider";
-
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 
@@ -27,7 +26,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <SidebarProvider>
             <AppSidebar />
             <main className="w-full">
-              <SidebarTrigger />
+              <div className="sticky top-0 z-10 bg-inherit md:hidden">
+                <SidebarTrigger />
+              </div>
               <div className="flex justify-between">{children}</div>
             </main>
           </SidebarProvider>

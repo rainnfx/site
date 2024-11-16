@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Camera } from "lucide-react";
 
 const photos = [
@@ -125,6 +125,7 @@ export default function PhotoGallery() {
         onOpenChange={() => setSelectedPhoto(null)}
       >
         <DialogContent className="max-w-4xl w-full bg-background">
+          <DialogTitle></DialogTitle>
           {selectedPhoto && (
             <div className="relative aspect-video rounded-lg">
               <Image
