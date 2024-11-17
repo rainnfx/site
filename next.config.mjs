@@ -10,7 +10,6 @@ const nextConfig = {
     return config;
   },
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
-  swcMinify: false,
 };
 
 const withMDX = createMDX({
