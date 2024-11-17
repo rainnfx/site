@@ -29,11 +29,11 @@ const items1 = [
 ];
 
 const items2 = [
-  {
+  /*  {
     title: "Projects",
     url: "/projects",
     icon: Folder,
-  },
+  },*/
   {
     title: "Reading",
     url: "/reading",
