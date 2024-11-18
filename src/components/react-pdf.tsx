@@ -6,6 +6,8 @@ import { useState } from "react";
 import { Document, Page } from "react-pdf";
 import { PdfProps } from "../types";
 import { pdfjs } from "react-pdf";
+import { Button } from "./ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
@@ -27,12 +29,6 @@ export default function PdfReactPdf({ src }: PdfProps) {
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
-      <button onClick={prevPage} disabled={pageNumber <= 1}>
-        Previous
-      </button>
-      <button onClick={nextPage} disabled={pageNumber >= (numPages ?? -1)}>
-        Next
-      </button>
       <Document
         file={src}
         onLoadSuccess={onDocumentLoadSuccess}
@@ -40,9 +36,21 @@ export default function PdfReactPdf({ src }: PdfProps) {
       >
         <Page pageNumber={pageNumber} />
       </Document>
-      <p>
-        Page {pageNumber} of {numPages}
-      </p>
+      <div className="flex justify-between mb-4 mt-4">
+        <Button variant="outline" onClick={prevPage} disabled={pageNumber <= 1}>
+          <ChevronLeft />
+        </Button>
+        <p className="text-muted-foreground">
+          Page {pageNumber} of {numPages}
+        </p>
+        <Button
+          variant="outline"
+          onClick={nextPage}
+          disabled={pageNumber >= (numPages ?? -1)}
+        >
+          <ChevronRight />
+        </Button>
+      </div>
     </div>
   );
 }
