@@ -3,7 +3,6 @@ import { Metadata } from "next";
 import { posts as allBlogs } from "#site/content";
 import { cn, formatDate } from "@/lib/utils";
 import "@/styles/mdx.css";
-
 import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { Mdx } from "@/components/mdx-components";
@@ -18,7 +17,8 @@ interface BlogPageItemProps {
 }
 
 async function getBlogFromParams(params: BlogPageItemProps["params"]) {
-  const slug = params?.slug.join("/");
+  const resolvedParams = await params;
+  const slug = resolvedParams?.slug.join("/");
   const blog = allBlogs.find((blog) => blog.slugAsParams === slug);
 
   if (!blog) {
@@ -58,7 +58,7 @@ export default async function BlogPageItem({ params }: BlogPageItemProps) {
   const blog = await getBlogFromParams(params);
 
   if (!blog) {
-    return {};
+    return null;
   }
 
   return (
@@ -83,7 +83,7 @@ export default async function BlogPageItem({ params }: BlogPageItemProps) {
             className="my-8 border bg-muted transition-colors"
           />
         ) : (
-          <div className="my-8" /> // This empty div adds spacing for when there's no image
+          <div className="my-8" />
         )}
 
         <h1 className="-mt-2 inline-block text-4xl font-bold capitalize leading-tight text-primary lg:text-5xl">
