@@ -28,15 +28,17 @@ export default function PdfReactPdf({ src }: PdfProps) {
   }
 
   return (
-    <div style={{ width: "100%", height: "100%" }}>
-      <Document
-        file={src}
-        onLoadSuccess={onDocumentLoadSuccess}
-        className="my-react-pdf"
-      >
-        <Page pageNumber={pageNumber} />
-      </Document>
-      <div className="flex justify-between mb-4 mt-4">
+    <div className="flex flex-col items-center justify-center min-h-full w-full mt-4 mb-4">
+      <div className="flex justify-center w-full">
+        <Document
+          file={src}
+          onLoadSuccess={onDocumentLoadSuccess}
+          className="my-react-pdf rounded-lg overflow-hidden shadow-md bg-background"
+        >
+          <Page pageNumber={pageNumber} className="rounded-lg" />
+        </Document>
+      </div>
+      <div className="flex justify-between w-full max-w-md mt-4 px-4">
         <Button variant="outline" onClick={prevPage} disabled={pageNumber <= 1}>
           <ChevronLeft />
         </Button>
