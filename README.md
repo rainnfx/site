@@ -23,3 +23,7 @@ Simple MDX blog that I [forked](https://github.com/devbertskie/next-mdx-blog) an
 [ ] add projects page
 
 [ ] add page on good videos or smtnh (bookmarks)
+
+[ ] add navbar
+
+[ ] add lightmode
