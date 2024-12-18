@@ -31,12 +31,12 @@ export default function ReadingList() {
       {books.map((item, index) => (
         <p
           key={index}
-          className="leading-7 text-md [&:not(:first-child)]:mt-2 text-muted-foreground"
+          className="text-base leading-7 text-muted-foreground [&:not(:first-child)]:mt-2"
         >
           <span className="text-primary">{index + 1}.</span> {item.title}
           <span className="text-primary"> — </span>
           <Link
-            href={item.link}
+            href={{ pathname: item.link }}
             target="_blank"
             className="text-blue-500 hover:underline"
           >

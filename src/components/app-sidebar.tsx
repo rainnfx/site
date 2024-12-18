@@ -50,8 +50,8 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="font-bold text-sm text-foreground">
-            Matteo's Site
+          <SidebarGroupLabel className="text-sm font-bold text-foreground">
+            Matteo&apos;s Site
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
@@ -69,7 +69,7 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-foreground font-semibold">
+          <SidebarGroupLabel className="font-semibold text-foreground">
             Me
           </SidebarGroupLabel>
           <SidebarGroupContent>
@@ -89,10 +89,10 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <span className="px-2 py-2 text-sm font-semibold text-muted-foreground">
+        <span className="p-2 text-sm font-semibold text-muted-foreground">
           Source is on{" "}
           <Link
-            href="https://github.com/rainnfx/matteoa.com"
+            href="https://github.com/rainnfx/site"
             target="_blank"
             className="text-blue-500 hover:underline"
           >

@@ -73,7 +73,7 @@ export default function PostSelector() {
 
   if (!isMounted) {
     return (
-      <div className="flex justify-center w-full">
+      <div className="flex w-full justify-center">
         <div className="w-full max-w-3xl px-4 py-12 md:px-8">
           <PageHeader
             title="Posts"
@@ -86,7 +86,7 @@ export default function PostSelector() {
   }
 
   return (
-    <div className="flex justify-center w-full">
+    <div className="flex w-full justify-center">
       <div className="w-full max-w-3xl px-4 py-12 md:px-8">
         <PageHeader
           title="Posts"
@@ -98,7 +98,7 @@ export default function PostSelector() {
             currentPosts.map((blog) => (
               <article
                 key={blog.slug}
-                className="group relative flex flex-col space-y-2 mb-7"
+                className="group relative mb-7 flex flex-col space-y-2"
               >
                 {blog.date && (
                   <p className="text-sm text-muted-foreground">
@@ -114,6 +114,8 @@ export default function PostSelector() {
                 <Link href={`/${blog.slug}`} className="absolute inset-0">
                   <span className="sr-only">View Article</span>
                 </Link>
+                <div />
+                <div />
                 <Separator />
               </article>
             ))

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { Check, Copy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -22,9 +22,9 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
-      <div className="rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
-        <div className="flex items-center justify-between px-4 py-2 bg-gray-100 dark:bg-gray-700">
+    <div className="mx-auto w-full max-w-2xl">
+      <div className="overflow-hidden rounded-lg border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
+        <div className="flex items-center justify-between bg-gray-100 px-4 py-2 dark:bg-gray-700">
           <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
             {fileName}
           </span>
@@ -36,19 +36,19 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
           >
             {isCopied ? (
               <>
-                <Check className="w-4 h-4 mr-2" />
+                <Check className="mr-2 size-4" />
                 Copied!
               </>
             ) : (
               <>
-                <Copy className="w-4 h-4 mr-2" />
+                <Copy className="mr-2 size-4" />
                 Copy
               </>
             )}
           </Button>
         </div>
-        <pre className="p-4 overflow-x-auto">
-          <code className="text-sm font-mono">{code}</code>
+        <pre className="overflow-x-auto p-4">
+          <code className="font-mono text-sm">{code}</code>
         </pre>
       </div>
     </div>

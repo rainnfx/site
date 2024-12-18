@@ -8,48 +8,47 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { Mdx } from "@/components/mdx-components";
 
-// Define the shape of PageProps explicitly
-type PageProps = {
-  params: { slug: string[] };
-};
-
-// Function to fetch a blog by its slug
-async function getBlogFromParams(slug: string[]) {
-  const slugPath = slug.join("/");
-  const blog = allBlogs.find((blog) => blog.slugAsParams === slugPath);
-  return blog || null;
+interface PageProps {
+  params: Promise<{ slug: string[] }>;
 }
 
-// Generate metadata for the page
+async function getBlogFromParams({ slug }: { slug: string[] }) {
+  const slugPath = slug.join("/");
+  const blog = allBlogs.find((blog) => blog.slugAsParams === slugPath);
+  return blog;
+}
+
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const blog = await getBlogFromParams(params.slug);
+  const { slug } = await params;
+  const blog = await getBlogFromParams({ slug });
 
   if (!blog) {
-    return {};
+    return {
+      title: "Post Not Found",
+    };
   }
 
   return {
     title: blog.title,
     description: blog.description,
-    authors: { name: blog.author },
+    authors: [{ name: blog.author }],
   };
 }
 
-// Generate static paths
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
   return allBlogs.map((blog) => ({
     slug: blog.slugAsParams.split("/"),
   }));
 }
 
-// Main page component
-export default async function BlogPageItem({ params }: PageProps) {
-  const blog = await getBlogFromParams(params.slug);
+export default async function BlogPage({ params }: PageProps) {
+  const { slug } = await params;
+  const blog = await getBlogFromParams({ slug });
 
   if (!blog) {
-    return null;
+    return <div>Post not found</div>;
   }
 
   return (
@@ -58,7 +57,7 @@ export default async function BlogPageItem({ params }: PageProps) {
         {blog.date && (
           <time
             dateTime={blog.date}
-            className="block text-sm text-muted-foreground -mb-5"
+            className="-mb-5 block text-sm text-muted-foreground"
           >
             Written by {blog.author} on {formatDate(blog.date)}
           </time>
@@ -80,7 +79,7 @@ export default async function BlogPageItem({ params }: PageProps) {
         <h1 className="-mt-2 inline-block text-4xl font-bold capitalize leading-tight text-primary lg:text-5xl">
           {blog.title}
         </h1>
-        <hr className="mt-5 mb-7" />
+        <hr className="mb-7 mt-5" />
         <Mdx code={blog.body} />
         <hr className="mt-12" />
         <div className="flex justify-center py-6 lg:py-10">

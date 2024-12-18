@@ -27,16 +27,16 @@ export default function BlogPage() {
       <ul className="space-y-4">
         {projects.map((project) => (
           <li key={project.id} className="flex items-start">
-            <span className="text-xl mr-2">•</span>
+            <span className="mr-2 text-xl">•</span>
             <div>
               <Link
                 href={project.url as unknown as URL}
-                className="text-blue-500 hover:underline font-semibold"
+                className="font-semibold text-blue-500 hover:underline"
                 target="_blank"
               >
                 {project.name}
               </Link>
-              <p className="text-muted-foreground mt-1">
+              <p className="mt-1 text-muted-foreground">
                 {project.description}
               </p>
             </div>

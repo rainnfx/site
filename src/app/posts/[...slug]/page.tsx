@@ -57,7 +57,7 @@ export default async function BlogPage({ params }: PageProps) {
         {blog.date && (
           <time
             dateTime={blog.date}
-            className="block text-sm text-muted-foreground -mb-5"
+            className="-mb-5 block text-sm text-muted-foreground"
           >
             Written by {blog.author} on {formatDate(blog.date)}
           </time>
@@ -79,7 +79,7 @@ export default async function BlogPage({ params }: PageProps) {
         <h1 className="-mt-2 inline-block text-4xl font-bold capitalize leading-tight text-primary lg:text-5xl">
           {blog.title}
         </h1>
-        <hr className="mt-5 mb-7" />
+        <hr className="mb-7 mt-5" />
         <Mdx code={blog.body} />
         <hr className="mt-12" />
         <div className="flex justify-center py-6 lg:py-10">
