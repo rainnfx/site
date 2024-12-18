@@ -1,5 +1,4 @@
 import createMDX from "@next/mdx";
-
 import { build } from "velite";
 
 /** @type {import('next').NextConfig} */
@@ -16,7 +15,7 @@ const nextConfig = {
         protocol: "https",
         hostname: "bpb-ca-c1.wpmucdn.com",
         port: "",
-        pathname: "blog44.ca/dist/e/955/files/**",
+        pathname: "/blog44.ca/dist/e/955/files/**", // Added leading slash
       },
     ],
   },
@@ -25,7 +24,6 @@ const nextConfig = {
     config.resolve.alias.canvas = false;
     return config;
   },
-
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 };
 
