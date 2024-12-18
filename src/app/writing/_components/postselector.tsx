@@ -105,7 +105,7 @@ export default function PostSelector() {
                     {formatDate(blog.date)}
                   </p>
                 )}
-                <h2 className="text-2xl font-extrabold text-primary">
+                <h2 className="text-2xl font-bold text-primary">
                   {blog.title}
                 </h2>
                 {blog.description && (

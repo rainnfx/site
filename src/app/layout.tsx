@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
-import { ReactNode } from "react";
-import { cn } from "@/lib/utils";
+import React from "react";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
@@ -21,6 +20,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
+          enableSystem
           disableTransitionOnChange
         >
           <SidebarProvider>

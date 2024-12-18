@@ -4,34 +4,27 @@ import { writing as allBlogs } from "#site/content";
 import { cn, formatDate } from "@/lib/utils";
 import "@/styles/mdx.css";
 import Image from "next/image";
-import { siteConfig } from "@/config/site";
-import { Mdx } from "@/components/mdx-components";
-import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
+import { Mdx } from "@/components/mdx-components";
 
-interface BlogPageItemProps {
-  params: {
-    slug: string[];
-  };
+// Define the shape of PageProps explicitly
+type PageProps = {
+  params: { slug: string[] };
+};
+
+// Function to fetch a blog by its slug
+async function getBlogFromParams(slug: string[]) {
+  const slugPath = slug.join("/");
+  const blog = allBlogs.find((blog) => blog.slugAsParams === slugPath);
+  return blog || null;
 }
 
-async function getBlogFromParams(params: BlogPageItemProps["params"]) {
-  const resolvedParams = await params;
-  const slug = resolvedParams?.slug.join("/");
-  const blog = allBlogs.find((blog) => blog.slugAsParams === slug);
-
-  if (!blog) {
-    return null;
-  }
-
-  return blog;
-}
-
+// Generate metadata for the page
 export async function generateMetadata({
   params,
-}: BlogPageItemProps): Promise<Metadata> {
-  const blog = await getBlogFromParams(params);
+}: PageProps): Promise<Metadata> {
+  const blog = await getBlogFromParams(params.slug);
 
   if (!blog) {
     return {};
@@ -40,22 +33,20 @@ export async function generateMetadata({
   return {
     title: blog.title,
     description: blog.description,
-    authors: {
-      name: blog.author,
-    },
+    authors: { name: blog.author },
   };
 }
 
-export async function generateStaticParams(): Promise<
-  BlogPageItemProps["params"][]
-> {
+// Generate static paths
+export async function generateStaticParams() {
   return allBlogs.map((blog) => ({
     slug: blog.slugAsParams.split("/"),
   }));
 }
 
-export default async function BlogPageItem({ params }: BlogPageItemProps) {
-  const blog = await getBlogFromParams(params);
+// Main page component
+export default async function BlogPageItem({ params }: PageProps) {
+  const blog = await getBlogFromParams(params.slug);
 
   if (!blog) {
     return null;
@@ -97,7 +88,6 @@ export default async function BlogPageItem({ params }: BlogPageItemProps) {
             href="/posts"
             className={cn(buttonVariants({ variant: "ghost" }))}
           >
-            <ChevronLeft className="mr-2 size-4" />
             See all Posts
           </Link>
         </div>

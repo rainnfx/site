@@ -1,4 +1,4 @@
-import { Camera, Home, Inbox, Book, Folder, ScrollText } from "lucide-react";
+import { Home, Inbox, Book, Folder, ScrollText } from "lucide-react";
 
 import {
   Sidebar,
@@ -11,7 +11,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { url } from "inspector";
 import Link from "next/link";
 
 // Menu items.
@@ -29,20 +28,15 @@ const items1 = [
 ];
 
 const items2 = [
-  /*  {
+  {
     title: "Projects",
     url: "/projects",
     icon: Folder,
-  },*/
+  },
   {
     title: "Reading",
     url: "/reading",
     icon: Book,
-  },
-  {
-    title: "Photography",
-    url: "/photos",
-    icon: Camera,
   },
   {
     title: "Writing",

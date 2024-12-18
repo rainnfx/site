@@ -77,7 +77,7 @@ export default function PostSelector() {
         <div className="w-full max-w-3xl px-4 py-12 md:px-8">
           <PageHeader
             title="Posts"
-            description="A blog using velite. Posts are written in MDX"
+            description="My posts for school, if you'd like my personal writeups, go to Writings (on the sidebar)."
           />
           <hr className="my-8" />
         </div>
@@ -90,7 +90,7 @@ export default function PostSelector() {
       <div className="w-full max-w-3xl px-4 py-12 md:px-8">
         <PageHeader
           title="Posts"
-          description="A blog using velite. Posts are written in MDX"
+          description="My posts for school, if you'd like my personal writeups, go to Writings (on the sidebar)."
         />
         <hr className="my-8" />
         <div className="gap-10">
@@ -105,7 +105,7 @@ export default function PostSelector() {
                     {formatDate(blog.date)}
                   </p>
                 )}
-                <h2 className="text-2xl font-extrabold text-primary">
+                <h2 className="text-2xl font-bold text-primary">
                   {blog.title}
                 </h2>
                 {blog.description && (

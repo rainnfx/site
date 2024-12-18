@@ -1,20 +1,15 @@
-import { buttonVariants } from "@/components/ui/button";
-import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
-
 export default function Home() {
   return (
-    <section className="pt-16 px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 2xl:px-64">
+    <section className="pt-16 px-96 sm:px-8 md:px-16 lg:px-32 xl:px-48 2xl:px-64">
       <p className="leading-7 text-md [&:not(:first-child)]:mt-6 text-muted-foreground">
-        Hey, I'm Matteo. I'm a student who is passionate about building things
-        that work.
+        Hey, I'm Matteo.
       </p>
-      <p className="leading-7 [&:not(:first-child)]:mt-6 text-muted-foreground">
-        My interest in programming started back when I was 6 when I had to do
-        little block based coding activities in elementary school. Ever since
-        then, I have been hooked on programming and have been learning new
-        things.
+      <p className="leading-7 text-md [&:not(:first-child)]:mt-6 text-muted-foreground">
+        I'm just a guy who loves creating cool things and bringing ideas to
+        life.
+      </p>
+      <p className="leading-7 text-md [&:not(:first-child)]:mt-6 text-muted-foreground">
+        No intricate story of what I've done and made yet, maybe soon.
       </p>
     </section>
   );

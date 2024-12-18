@@ -1,4 +1,7 @@
 /* eslint-disable no-new-func */
+
+"use client";
+
 import { cn } from "@/lib/utils";
 import React, { HTMLAttributes } from "react";
 import * as runtime from "react/jsx-runtime";
@@ -6,6 +9,8 @@ import * as runtime from "react/jsx-runtime";
 import Image from "next/image";
 import PdfReactPdf from "./react-pdf";
 import { Button } from "./ui/button";
+
+import { Spotify } from "mdx-embed";
 
 const useMDXComponent = (code: string) => {
   const fn = new Function(code);
@@ -47,7 +52,8 @@ const components = {
   ),
   a: ({ ...props }: ComponentsProps) => (
     <a
-      className={cn("font-medium underline text-primary underline-offset-4")}
+      className={cn("font-medium hover:underline text-blue-500")}
+      target="_blank"
       {...props}
     />
   ),
@@ -89,13 +95,18 @@ const components = {
       {...props}
     />
   ),
-  img: ({
+  Img: ({
     className,
+    src,
     alt,
     ...props
-  }: React.ImgHTMLAttributes<HTMLImageElement>) => (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img className={cn("rounded-md border", className)} alt={alt} {...props} />
+  }: React.ComponentProps<typeof Image>) => (
+    <Image
+      src={src}
+      alt={alt}
+      className="mt-4 rounded-md text-center"
+      {...props}
+    />
   ),
   hr: ({ ...props }) => <hr className="my-4 md:my-8" {...props} />,
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
@@ -147,6 +158,7 @@ const components = {
   ),
   Button,
   PdfReactPdf,
+  Spotify,
 };
 
 interface MdxProps {
