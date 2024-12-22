@@ -5,6 +5,7 @@ import React from "react";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
+import { Separator } from "@/components/ui/separator";
 
 export const metadata: Metadata = {
   title: {
@@ -26,9 +27,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <SidebarProvider>
             <AppSidebar />
             <main className="w-full">
-              <div className="sticky top-0 z-10 bg-inherit md:hidden">
-                <SidebarTrigger />
-              </div>
+              <nav className="sticky top-0 z-10 bg-inherit/20 backdrop-blur-lg md:hidden">
+                <div className="flex items-center justify-between p-2">
+                  <SidebarTrigger />
+                </div>
+                <Separator />
+              </nav>
               <div className="flex justify-between">{children}</div>
             </main>
           </SidebarProvider>
