@@ -11,6 +11,12 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    files: ["**/sanity/types.ts"],
+    rules: {
+      "@typescript-eslint/no-use-before-define": "off",
+    },
+  },
 ];
 
 export default eslintConfig;
