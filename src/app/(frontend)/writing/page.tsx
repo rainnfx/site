@@ -4,8 +4,8 @@ import { POSTS_QUERY } from "@/sanity/lib/queries";
 
 interface Post {
   _id: string;
-  slug?: { current: string };
-  title?: string;
+  slug?: { current?: string } | null;
+  title?: string | null;
 }
 
 export default async function Page() {
