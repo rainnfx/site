@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { sanityFetch } from "@/sanity/lib/live";
 import { morePostsQuery, allPostsQuery } from "@/sanity/lib/queries";
-import { Post as PostType } from "@/sanity.types";
+import type { Post as PostType } from "@/sanity.types";
 import DateComponent from "@/app/components/Date";
 import OnBoarding from "@/app/components/Onboarding";
 
@@ -20,13 +20,13 @@ const Post = ({ post }: { post: PostType }) => {
 
       <h3 className="mt-3 text-2xl font-semibold">
         <Link
-          className="hover:text-red-500 underline transition-colors"
+          className="hover:underline decoration-input transition-all hover:ease-linear"
           href={`/posts/${slug}`}
         >
           {title}
         </Link>
       </h3>
-      <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+      <p className="mt-3 line-clamp-3 text-sm leading-6 text-gray-600">
         {excerpt}
       </p>
     </article>
@@ -75,7 +75,9 @@ export const MorePosts = async ({
 
   return (
     <Posts heading={`Recent Posts (${data?.length})`}>
-      {data?.map((post: any) => <Post key={post._id} post={post} />)}
+      {data?.map((post: PostType) => (
+        <Post key={post._id} post={post} />
+      ))}
     </Posts>
   );
 };
@@ -90,9 +92,13 @@ export const AllPosts = async () => {
   return (
     <Posts
       heading="Recent Posts"
-      subHeading={`${data.length === 1 ? "This blog post is" : `These ${data.length} blog posts are`} populated from your Sanity Studio.`}
+      subHeading={`${
+        data.length === 1
+          ? "This blog post is"
+          : `These ${data.length} blog posts are`
+      } populated from your Sanity Studio.`}
     >
-      {data.map((post: any) => (
+      {data.map((post: PostType) => (
         <Post key={post._id} post={post} />
       ))}
     </Posts>
