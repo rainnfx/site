@@ -80,14 +80,21 @@ export default function CustomPortableText({
     },
     marks: {
       link: ({ children, value: link }) => {
-        return <ResolvedLink link={link}>{children}</ResolvedLink>;
+        return (
+          <ResolvedLink
+            link={link}
+            className="no-underline relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-slate-300 after:opacity-0 after:transition-opacity after:duration-300 hover:text-slate-600 hover:after:opacity-100"
+          >
+            {children}
+          </ResolvedLink>
+        );
       },
     },
   };
 
   return (
     <div
-      className={["prose prose-a:text-red-500", className]
+      className={["prose prose-a:text-slate-500", className]
         .filter(Boolean)
         .join(" ")}
     >

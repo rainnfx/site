@@ -18,7 +18,7 @@ const Post = ({ post }: { post: PostType }) => {
         <DateComponent dateString={date} />
       </div>
 
-      <h3 className="mt-3 text-2xl font-semibold">
+      <h3 className="mt-3 text-xl font-semibold">
         <Link
           className="hover:underline decoration-input transition-all hover:ease-linear"
           href={`/posts/${slug}`}
