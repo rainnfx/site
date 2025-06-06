@@ -44,14 +44,11 @@ const Posts = ({
 }) => (
   <div>
     {heading && (
-      <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
+      <h2 className="text-xl font-semibold tracking-tight text-gray-900">
         {heading}
       </h2>
     )}
-    {subHeading && (
-      <p className="mt-2 text-lg leading-8 text-gray-600">{subHeading}</p>
-    )}
-    <div className="mt-6 pt-6 space-y-12 border-t border-gray-200">
+    <div className="mt-2 pt-8 space-y-12 border-t border-gray-200">
       {children}
     </div>
   </div>
@@ -90,17 +87,26 @@ export const AllPosts = async () => {
   }
 
   return (
-    <Posts
-      heading="Recent Posts"
-      subHeading={`${
-        data.length === 1
-          ? "This blog post is"
-          : `These ${data.length} blog posts are`
-      } populated from your Sanity Studio.`}
-    >
-      {data.map((post: PostType) => (
-        <Post key={post._id} post={post} />
-      ))}
-    </Posts>
+    <>
+      <div className="-mt-10 mb-14 w-full">
+        <h4 className="font-semibold text-2xl">Hey, I&apos;m Matteo!</h4>
+        <p className="mt-3 line-clamp-3 leading-6 text-gray-600">
+          I&apos;m going to write and share it here every week or so! Hope you
+          enjoy whatever it is I have to say!
+        </p>
+      </div>
+      <Posts
+        heading="Recent Posts"
+        subHeading={`${
+          data.length === 1
+            ? "This blog post is"
+            : `These ${data.length} blog posts are`
+        } populated from your Sanity Studio.`}
+      >
+        {data.map((post: PostType) => (
+          <Post key={post._id} post={post} />
+        ))}
+      </Posts>
+    </>
   );
 };

@@ -7,14 +7,15 @@ export default function Header() {
     <header className="bg-gray-50 border-b border-gray-10 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-[42rem]">
       <div className="container">
         <div className="flex min-h-[200px] flex-col justify-between py-16">
-          <div className="flex flex-col lg:w-1/2">
+          <div className="flex flex-col">
             <Link href="/">
-              <h3 className="mb-4 text-3xl font-bold leading-tight tracking-tighter lg:text-4xl">
+              <h3 className="mb-4 text-2xl font-bold leading-tight tracking-tighter">
                 Written by Matteo Aure
               </h3>
             </Link>
-            <p className="text-muted-foreground">
-              Blog about software development & design
+            <p className="text-muted-foreground w-full">
+              I like a lot of things — nature, tech, and whatever else I find
+              interesting.
             </p>
           </div>
           <div className="flex mt-4 w-full">
