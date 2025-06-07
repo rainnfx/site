@@ -4,7 +4,7 @@ import { Input } from "./Input";
 
 export default function Header() {
   return (
-    <header className="bg-gray-50 border-b border-gray-10 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-[42rem]">
+    <header className="bg-gray-50 border-b border-gray-10 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-[38rem]">
       <div className="container">
         <div className="flex min-h-[200px] flex-col justify-between py-16">
           <div className="flex flex-col">
