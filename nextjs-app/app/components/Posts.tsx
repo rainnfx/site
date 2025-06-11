@@ -72,8 +72,8 @@ export const MorePosts = async ({
 
   return (
     <Posts heading={`Recent Posts (${data?.length})`}>
-      {data?.map((post: PostType) => (
-        <Post key={post._id} post={post} />
+      {data?.map((post) => (
+        <Post key={post._id} post={post as unknown as PostType} />
       ))}
     </Posts>
   );
@@ -103,8 +103,8 @@ export const AllPosts = async () => {
             : `These ${data.length} blog posts are`
         } populated from your Sanity Studio.`}
       >
-        {data.map((post: PostType) => (
-          <Post key={post._id} post={post} />
+        {data.map((post) => (
+          <Post key={post._id} post={post as unknown as PostType} />
         ))}
       </Posts>
     </>
