@@ -10,6 +10,7 @@ import PortableText from "@/app/components/PortableText";
 import { sanityFetch } from "@/sanity/lib/live";
 import { postPagesSlugs, postQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
+import Link from "next/link";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -98,6 +99,16 @@ export default async function PostPage(props: Props) {
       </div>
       <div className="">
         <div className="container my-12 lg:my-24 grid gap-12">
+          <div>
+            <Link
+              className="no-underline relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-slate-300 after:opacity-0 after:transition-opacity after:duration-300 hover:after:opacity-100"
+              href={`mailto:matteo.aure@gmail.com?subject=Re: ${encodeURIComponent(
+                post.title
+              )}`}
+            >
+              Reply via email
+            </Link>
+          </div>
           <aside>
             <Suspense>{await MorePosts({ skip: post._id, limit: 2 })}</Suspense>
           </aside>
