@@ -5,7 +5,15 @@ import createMDX from "@next/mdx";
 const nextConfig: NextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   images: {
-    domains: ["vat10f3xu3.ufs.sh"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "vat10f3xu3.ufs.sh",
+      },
+    ],
+  },
+  turbopack: {
+    root: __dirname,
   },
 };
 

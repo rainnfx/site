@@ -6,7 +6,7 @@ export default function Bookshelf() {
       <PageHeading>Projects</PageHeading>
       <div>
         <div className="space-y-2 text-muted-foreground">
-          <h4 className="text-muted-foreground pb-2">soon</h4>
+          <h4 className="text-muted-foreground pb-2">lemme make some first</h4>
         </div>
       </div>
     </main>

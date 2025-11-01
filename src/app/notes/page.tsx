@@ -7,10 +7,7 @@ export default function Bookshelf() {
       <div>
         <div className="space-y-2 text-muted-foreground">
           <h4 className="text-muted-foreground pb-2">
-            digital: Nikon D5100, Nikon 70-300mm VR & Nikon 17-55mm f/2.8 DX
-          </h4>
-          <h4 className="text-muted-foreground pb-2">
-            film: Pentax K1000, Pentax-M SMC 50mm f/2
+            still figuring out how i wanna do this
           </h4>
         </div>
       </div>
