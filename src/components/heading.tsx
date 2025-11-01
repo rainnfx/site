@@ -1,5 +1,5 @@
+import { cva } from "class-variance-authority";
 import { prociono } from "@/lib/fonts";
-import { cva, VariantProps } from "class-variance-authority";
 import { Slot } from "@radix-ui/react-slot";
 
 const headingStyles = cva(`${prociono.className} text-4xl pb-8`);
